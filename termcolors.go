@@ -37,8 +37,8 @@ func init() {
 	checkingInteractive(SetColor)
 }
 
-// Sets the terminal color variables if the stdout is missing. Telling us that
-// the terminal is likely non-interactive.
+// SetColor will place the color ANSI escape characters in place of the empty
+// strings. Allowing color to be used.
 func SetColor() {
 	Black = "\033[30m"
 	K = Black
@@ -72,7 +72,7 @@ func checkingInteractive(fn func()) {
 	}
 }
 
-// Rand returns a random color ANSI escape between Black (30) and White (37)
+// RandomColor returns a random color ANSI escape between Black (30) and White (37)
 func RandomColor(forceColorOns ...bool) string {
 	if len(forceColorOns) > 0 {
 		forcedColorOn = forceColorOns[0]

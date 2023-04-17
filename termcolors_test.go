@@ -4,12 +4,10 @@ import (
 	"fmt"
 	"strings"
 
-	C "github.com/Benderjrk/boost_lab/tree/main/go/termcolors"
+	C "github.com/ScriptAlchemist/go-termcolor"
 )
 
-/*--------------------------------------------Non Interactive---------------------------------------*/
-
-func ExampleBlack_noninteractive() {
+func ExampleSetColor_noninteractive() {
 	fmt.Printf("%q\n", C.Black+"black"+C.Reset)
 	fmt.Printf("%q\n", C.Red+"red"+C.Reset)
 	fmt.Printf("%q\n", C.Green+"green"+C.Reset)
@@ -31,7 +29,7 @@ func ExampleBlack_noninteractive() {
 
 }
 
-func ExampleBlack_shortcut_noninteractive() {
+func ExampleSetColor_shortcutnoninteractive() {
 	fmt.Printf("%q\n", C.K+"black"+C.X)
 	fmt.Printf("%q\n", C.R+"red"+C.X)
 	fmt.Printf("%q\n", C.G+"green"+C.X)
@@ -52,16 +50,14 @@ func ExampleBlack_shortcut_noninteractive() {
 	// "white"
 }
 
-func ExampleRand_noninteractive() {
+func ExampleRandomColor_noninteractive() {
 	fmt.Printf("%q\n", C.RandomColor())
 
 	// Output:
 	// ""
 }
 
-/*--------------------------------------------Interactive-------------------------------------------*/
-
-func ExampleBlack_interactive() {
+func ExampleSetColor_interactive() {
 	C.SetColor()
 	fmt.Printf("%q\n", C.Black+"black"+C.Reset)
 	fmt.Printf("%q\n", C.Red+"red"+C.Reset)
@@ -83,7 +79,7 @@ func ExampleBlack_interactive() {
 	// "\x1b[37mwhite\x1b[0m"
 
 }
-func ExampleBlack_shortcut_interactive() {
+func ExampleSetColor_shortcutinteractive() {
 	fmt.Printf("%q\n", C.K+"black"+C.X)
 	fmt.Printf("%q\n", C.R+"red"+C.X)
 	fmt.Printf("%q\n", C.G+"green"+C.X)
@@ -104,7 +100,7 @@ func ExampleBlack_shortcut_interactive() {
 	// "\x1b[37mwhite\x1b[0m"
 }
 
-func ExampleRand_interactive() {
+func ExampleRandomColor_interactive() {
 	string := C.RandomColor(true)
 	colorAdded := strings.HasPrefix(string, "\x1b[3")
 	fmt.Println(colorAdded)
